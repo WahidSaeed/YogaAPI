@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "port": "3308",
+    "database": "pranayamaUAT",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "port": "3308",
+    "database": "pranayamaUAT",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "port": "3308",
+    "database": "pranayamaUAT",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
