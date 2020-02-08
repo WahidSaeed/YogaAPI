@@ -1,7 +1,4 @@
 'use strict';
-var notificationType = require('./notificationtype');
-var subscriptionType = require('./subscriptiontype');
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
@@ -15,9 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.INTEGER,
     weight: DataTypes.INTEGER,
     height: DataTypes.INTEGER,
-    notification_Id: DataTypes.INTEGER,
-    subscription_Id: DataTypes.INTEGER
+    notificationId: DataTypes.INTEGER,
+    subscriptionId: DataTypes.INTEGER
   }, {});
+
+  User.associate = function(models) {
+    User.belongsTo(models.NotificationType);
+    User.belongsTo(models.SubscriptionType);
+  };
 
   return User;
 };

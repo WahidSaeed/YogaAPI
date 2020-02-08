@@ -23,11 +23,19 @@ module.exports = {
       height: {
         type: Sequelize.INTEGER
       },
-      notification_Id: {
-        type: Sequelize.INTEGER
+      notificationId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'NotificationTypes',
+          key: 'id',
+        }
       },
-      subscription_Id: {
-        type: Sequelize.INTEGER
+      subscriptionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'SubscriptionTypes',
+          key: 'id',
+        }
       },
       createdAt: {
         allowNull: false,

@@ -11,11 +11,18 @@ module.exports = {
       exersiceName: {
         type: Sequelize.STRING
       },
+      songURL: {
+        type: Sequelize.STRING
+      },
       description: {
         type: Sequelize.STRING
       },
-      instructionId: {
-        type: Sequelize.INTEGER
+      pranayamaId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'pranayamas',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

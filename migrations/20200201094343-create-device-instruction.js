@@ -14,6 +14,13 @@ module.exports = {
       seconds: {
         type: Sequelize.INTEGER
       },
+      exerciseSessionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'exerciseSessions',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

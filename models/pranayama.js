@@ -9,11 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     pranayamaName: DataTypes.STRING,
     subscriptionLevel: DataTypes.INTEGER,
-    exerciseSessionId: DataTypes.INTEGER,
     parentId: DataTypes.INTEGER
   }, {});
   Pranayama.associate = function(models) {
-    // associations can be defined here
+    
   };
   return Pranayama;
 };

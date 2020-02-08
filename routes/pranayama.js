@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Pranayama = require('../models/pranayama');
-var ExerciseSession = require('../models/exercisesession');
-var db = require('../models/index')
+var db = require('../models/index');
 
 router.post('/', async (req, res, next) => {
     try {
@@ -17,17 +16,30 @@ router.post('/', async (req, res, next) => {
 })
 
 
-
 router.post('/exersicesession', async (req, res, next) => {
     try {
-        let sessionID = req.body.sessionID;
-        console.log(courseId);
-        let pranayamaData = await ExerciseSession(db.sequelize, db.Sequelize.DataTypes).findAll({ where: { parentID: courseId }});
-        res.status(200).json(pranayamaData);
+        let pranayamaId = req.body.pranayamaId;
+        await db.ExerciseSession
+                .findAll({ 
+                        where: { pranayamaId: pranayamaId }, 
+                        attributes: ['exersiceName', 'songURL', 'description'],
+                        include: [{
+                            model: db.DeviceInstruction,
+                            attributes: ['nostrilSide', 'seconds']
+                        }],
+                        raw: false
+                    })
+                .then((data) => {
+                        res.status(200).json(data);
+                })
+                .catch((err) => {
+                        res.status(500).send(err.message);   
+                        next(err);
+                });
     } catch (err) {
-        console.log(err)
         res.status(500).send(err);
     }
 })
+
 
 module.exports = router;

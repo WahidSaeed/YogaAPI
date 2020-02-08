@@ -10,10 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     exersiceName: DataTypes.STRING,
     songURL: DataTypes.STRING,
     description: DataTypes.STRING,
-    instructionId: DataTypes.INTEGER
+    pranayamaId: DataTypes.INTEGER
   }, {});
   ExerciseSession.associate = function(models) {
-    // associations can be defined here
+    //ExerciseSession.hasMany(models.Pranayama, { foreignKey: 'pranayamaId', sourceKey: 'pranayamaId' })
+    //ExerciseSession.belongsTo(models.DeviceInstruction, { foreignKey: 'id', targetKey: 'exerciseSessionId' })
+    ExerciseSession.hasMany(models.DeviceInstruction)
   };
   return ExerciseSession;
 };

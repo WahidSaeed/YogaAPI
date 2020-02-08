@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     parentId: DataTypes.INTEGER
   }, {});
   SubscriptionType.associate = function(models) {
-    // associations can be defined here
+    SubscriptionType.hasOne(models.Pranayama);
   };
   return SubscriptionType;
 };

@@ -9,10 +9,18 @@ module.exports = {
         autoIncrement: true
       },
       user: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
       },
       personalityId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'personalityTypes',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

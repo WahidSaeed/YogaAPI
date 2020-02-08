@@ -15,14 +15,19 @@ module.exports = {
       subscriptionLevel: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 1
-      },
-      exerciseSessionId: {
-        type: Sequelize.INTEGER
+        defaultValue: 1,
+        references: {
+          model: 'subscriptionTypes',
+          key: 'id'
+        }
       },
       parentId: {
         allowNull: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'pranayamas',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

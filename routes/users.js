@@ -5,17 +5,11 @@ var router = express.Router();
 
 var db = require('../models/index');
 
-// Models
-var User = require('../models/user');
-var UserPersonalityType = require('../models/userpersonalitytype');
-var UserExerciseType = require('../models/userexercisetype');
-
-
 // Create New User
 router.post('/', function(req, res, next) {
 
   try {
-    var token = jwt.sign({userID: req.body.name + req.body.age + Date.now}, 'secretKey');
+    let token = jwt.sign({userID: req.body.name + req.body.age + Date.now}, 'secretKey');
     
     let personalityTypeData = req.body.personalityData;
     let userPersonalityTypeData = [];
@@ -48,14 +42,13 @@ router.post('/', function(req, res, next) {
       })
     });
 
-    User(db.sequelize, db.Sequelize.DataTypes).create(userCreateData);
-    UserPersonalityType(db.sequelize, db.Sequelize.DataTypes).bulkCreate(userPersonalityTypeData);
-    UserExerciseType(db.sequelize, db.Sequelize.DataTypes).bulkCreate(userExerciseTypeData);
+    db.User.create(userCreateData);
+    db.UserPersonalityType.bulkCreate(userPersonalityTypeData);
+    db.UserExerciseType.bulkCreate(userExerciseTypeData);
 
     res.status(200).json(userCreateData);
   }
   catch(err) {
-    console.log(err);
     res.status(500).send(err);
   }
 });
@@ -63,7 +56,7 @@ router.post('/', function(req, res, next) {
 // Get User
 router.get('/', async function(req, res, next) {
   var userID = req.query.userID;
-  var data = await User(db.sequelize, db.Sequelize.DataTypes).findAll({
+  var data = await db.User.findAll({
                             where:
                               { id: userID }
                             });
