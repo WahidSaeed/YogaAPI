@@ -24,8 +24,8 @@ router.post('/', function(req, res, next) {
               gender: req.body.gender,
               weight: req.body.weight,
               height: req.body.height,
-              notification_Id: req.body.notification_Id,
-              subscription_Id: req.body.subscription_Id
+              notificationId: req.body.notificationId,
+              subscriptionId: req.body.subscriptionId
             };
 
     personalityTypeData.forEach(personalityId => {
@@ -42,9 +42,17 @@ router.post('/', function(req, res, next) {
       })
     });
 
-    db.User.create(userCreateData);
-    db.UserPersonalityType.bulkCreate(userPersonalityTypeData);
-    db.UserExerciseType.bulkCreate(userExerciseTypeData);
+    db.User.create(userCreateData)
+    .then(user => {
+      db.UserPersonalityType.bulkCreate(userPersonalityTypeData);
+      db.UserExerciseType.bulkCreate(userExerciseTypeData);
+    });
+
+    console.log('userPersonalityTypeData: ', userPersonalityTypeData)
+    console.log('userExerciseTypeData: ', userExerciseTypeData)
+
+    // db.UserPersonalityType.bulkCreate(userPersonalityTypeData);
+    // db.UserExerciseType.bulkCreate(userExerciseTypeData);
 
     res.status(200).json(userCreateData);
   }
