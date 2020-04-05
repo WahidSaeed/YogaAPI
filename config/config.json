@@ -2,8 +2,8 @@
   "development": {
     "username": "b31ab78da2682d",
     "password": "504561ed",
-    "database": "heroku_7b48086a6fe2b89",
     "host": "us-cdbr-iron-east-04.cleardb.net",
+    "port": "3306",
     "dialect": "mysql",
     "use_env_variable": "mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true"
   },
@@ -16,11 +16,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "b31ab78da2682d",
-    "password": "504561ed",
+    "dialect":  "mysql",
+    "protocol": "mysql",
+    "port": "3306",
     "host": "us-cdbr-iron-east-04.cleardb.net",
-    "port": "3308",
-    "dialect": "mysql",
-    "use_env_variable": "mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true"
+    "logging":  true
   }
 }
