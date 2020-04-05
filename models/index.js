@@ -10,7 +10,13 @@ const db = {};
 
 let sequelize;
 //if (config.use_env_variable) {
-  sequelize = new Sequelize("mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true", config);
+  sequelize = new Sequelize("mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true", {
+    dialect:  "mysql",
+    protocol: "mysql",
+    port: "3306",
+    host: "us-cdbr-iron-east-04.cleardb.net",
+    logging:  true
+  });
 //} else {
 //  sequelize = new Sequelize(config.database, config.username, config.password, config);
 //}
