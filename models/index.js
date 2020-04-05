@@ -11,6 +11,9 @@ const db = {};
 let sequelize;
 //if (config.use_env_variable) {
   sequelize = new Sequelize("mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true", {
+    database: "heroku_7b48086a6fe2b89",
+    username: "b31ab78da2682d",
+    password: "504561ed",
     dialect:  "mysql",
     protocol: "mysql",
     port: "3306",
