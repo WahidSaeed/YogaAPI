@@ -9,11 +9,11 @@ const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
+//if (config.use_env_variable) {
   sequelize = new Sequelize("mysql://b31ab78da2682d:504561ed@us-cdbr-iron-east-04.cleardb.net/heroku_7b48086a6fe2b89?reconnect=true", config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+//} else {
+//  sequelize = new Sequelize(config.database, config.username, config.password, config);
+//}
 
 fs
   .readdirSync(__dirname)
