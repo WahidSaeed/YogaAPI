@@ -10,7 +10,12 @@ router.post('/', async (req, res, next) => {
         let pranayamaData = await Pranayama(db.sequelize, db.Sequelize.DataTypes)
         .findAll({ 
             attributes: [['id', 'Id'], ['pranayamaName', 'title']],
-            where: { parentID: courseId }
+            where: { parentID: courseId },
+            include: [{
+                model: db.pranayama,
+                attributes: [['id', 'Id'], ['pranayamaName', 'title']]
+            }],
+            raw: false
         });
         res.status(200).json(pranayamaData);
     } catch (err) {
