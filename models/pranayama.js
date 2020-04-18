@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     parentId: DataTypes.INTEGER
   }, {});
   Pranayama.associate = function(models) {
-    Pranayama.hasMany(models.Pranayama)
+    
   };
   return Pranayama;
 };
