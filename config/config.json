@@ -1,12 +1,12 @@
 {
   "development": {
     "database": "pranayamauat",
-    "username": "admin",
-    "password": "admin",
+    "username": "xxx",
+    "password": "xxx",
     "dialect":  "mysql",
     "protocol": "mysql",
     "port": "3306",
-    "host": "us-mm-dca-3b5e2a917698.g5.cleardb.net"
+    "host": "xxx"
   },
   "test": {
     "dialect":  "mysql",
@@ -16,11 +16,11 @@
   },
   "production": {
     "database": "pranayamauat",
-    "username": "admin",
-    "password": "admin",
+    "username": "xxx",
+    "password": "xxx",
     "dialect":  "mysql",
     "protocol": "mysql",
     "port": "3306",
-    "host": "us-mm-dca-3b5e2a917698.g5.cleardb.net"
+    "host": "xxx"
   }
 }
